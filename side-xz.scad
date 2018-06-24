@@ -39,14 +39,18 @@ module side_xz()
 
         // Snap nuts
         for (x = [
-                material_z/2 + side_y_inset,
-                box_x - material_z/2 - side_y_inset
+                material_z/2 + support_margin,
+                box_x - material_z/2 - support_margin
                 ])
         {
             scale([1, 2, 1])
             translate([x, 0, box_z/2])
             rotate([0, 90, 0])
-            snap_nut_cutout();
+            snap_nut_cutout(
+                width = snap_joint_width,
+                height = snap_joint_height + 2*nothing,
+                stick_width = snap_joint_stick_width
+                );
         }
     }
 }

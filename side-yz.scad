@@ -72,7 +72,9 @@ module side_yz()
         ])
     rotate([180, 90, 0])
     snap_joint(
-        height = snap_joint_height + 2*nothing
+        width = snap_joint_width,
+        height = snap_joint_height + 2*nothing,
+        stick_width = snap_joint_stick_width
         );
 
     // Back edge snap-joint
@@ -83,7 +85,9 @@ module side_yz()
         ])
     rotate([0, 90, 0])
     snap_joint(
-        height = snap_joint_height + 2*nothing
+        width = snap_joint_width,
+        height = snap_joint_height + 2*nothing,
+        stick_width = snap_joint_stick_width
         );
 }
 
