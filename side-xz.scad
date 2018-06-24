@@ -48,6 +48,24 @@ module side_xz()
                 stick_width = snap_joint_stick_width
                 );
         }
+
+        // Middle diminution
+        for (z = [
+                -nothing,
+                box_z - material_z + nothing
+                ])
+        {
+            translate([
+                box_x/2 - diminution_x_width/2,
+                -nothing,
+                z
+                ])
+            cube([
+                diminution_x_width,
+                material_z + 2*nothing,
+                material_z
+                ]);
+        }
     }
 }
 

@@ -58,6 +58,24 @@ module side_yz()
             snap_cutout_size_y,
             snap_joint_cutout_width
             ]);
+
+        // Middle diminution
+        for (z = [
+                -nothing,
+                box_z - material_z + nothing
+                ])
+        {
+            translate([
+                -nothing,
+                box_y/2 - diminution_y_width/2,
+                z
+                ])
+            cube([
+                material_z + 2*nothing,
+                diminution_y_width,
+                material_z
+                ]);
+        }
     }
 
     // Front edge snap-joint

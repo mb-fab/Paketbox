@@ -23,6 +23,8 @@ nose_x_width = box_x / 4;
 nose_y_width = box_y / 4;
 nose_x_inset = material_z + 2*support_margin;
 nose_y_inset = material_z + support_margin;
+diminution_x_width = box_x - 2*nose_x_inset - 2*nose_x_width - 2*support_margin;
+diminution_y_width = box_y - 2*nose_y_inset - 2*nose_y_width - 2*support_margin;
 
 /*
  * Snap joint parameters
