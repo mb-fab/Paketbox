@@ -6,10 +6,10 @@ use <side-yz.scad>;
 
 module model()
 {
-    translate([0, 0, bottom_inset_z])
+    translate([0, 0, support_margin])
     side_xy();
 
-    translate([0, 0, box_z - top_inset_z - material_z])
+    translate([0, 0, box_z - support_margin - material_z])
     side_xy();
 
     #color("green")
@@ -21,11 +21,11 @@ module model()
     side_xz(false, true);
 
     #color("blue")
-    translate([side_y_inset - nothing, 0, 0])
+    translate([support_margin - nothing, 0, 0])
     side_yz();
 
     color("blue")
-    translate([box_x - side_y_inset - material_z + nothing, 0, 0])
+    translate([box_x - support_margin - material_z + nothing, 0, 0])
     side_yz();
 }
 

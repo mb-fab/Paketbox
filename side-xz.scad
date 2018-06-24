@@ -13,29 +13,25 @@ module side_xz()
             box_z
             ]);
 
-        // Bottom edge nose cutout
-        translate([
-            nose_offset_x,
-            -nothing,
-            bottom_inset_z
-            ])
-        cube([
-            nose_width,
-            material_z + 2*nothing,
-            material_z
-            ]);
-
-        // Top edge nose cutout
-        translate([
-            nose_offset_x,
-            -nothing,
-            box_z - material_z - top_inset_z
-            ])
-        cube([
-            nose_width,
-            material_z + 2*nothing,
-            material_z
-            ]);
+        // Edge nose cutouts
+        for (x = [
+                nose_x_inset,
+                box_x - nose_x_width - nose_x_inset
+                ])
+        {
+            for (z = [
+                    support_margin,
+                    box_z - material_z - support_margin
+                    ])
+            {
+                translate([x, -nothing, z])
+                cube([
+                    nose_x_width,
+                    material_z + 2*nothing,
+                    material_z
+                    ]);
+            }
+        }
 
         // Snap nuts
         for (x = [

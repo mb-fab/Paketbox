@@ -5,50 +5,54 @@ module side_xy()
 {
     // Central plate
     translate([
-        material_z + side_y_inset,
+        support_margin + material_z,
         material_z,
         0
         ])
     cube([
-        box_x - 2*material_z - 2*side_y_inset,
+        box_x - 2*material_z - 2*support_margin,
         box_y - 2*material_z,
         material_z
         ]);
 
-    // Add front and back edge noses
-    for (y = [
+    // Add noses in X axis
+    for (x = [
+            nose_x_inset,
+            box_x - nose_x_width - nose_x_inset
+            ])
+    {
+        for (y = [
                 0,
                 box_y - material_z - nothing
-            ])
-    {
-        translate([
-            nose_offset_x,
-            y,
-            0
-            ])
-        cube([
-            nose_width,
-            material_z + nothing,
-            material_z
-            ]);
+                ])
+        {
+            translate([x, y, 0])
+            cube([
+                nose_x_width,
+                material_z + nothing,
+                material_z
+                ]);
+        }
     }
 
-    // Add left and right edge noses
+    // Add noses in Y axis
     for (x = [
-            side_y_inset,
-            box_x - side_y_inset - material_z - nothing
+            support_margin,
+            box_x - support_margin - material_z - nothing
             ])
     {
-        translate([
-            x,
-            nose_offset_y,
-            0
-            ])
-        cube([
-            material_z + nothing,
-            nose_width,
-            material_z
-            ]);
+        for (y = [
+                nose_y_inset,
+                box_y - nose_y_width - nose_y_inset
+                ])
+        {
+            translate([x, y, 0])
+            cube([
+                material_z + nothing,
+                nose_y_width,
+                material_z
+                ]);
+        }
     }
 }
 

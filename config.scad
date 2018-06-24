@@ -8,7 +8,7 @@ material_z = 3;
 // The inside measures of the box
 cargo_x = 360;
 cargo_y = 360;
-cargo_z = 150;
+cargo_z = 80;
 
 // How much space to leave between nose cutouts and material corner
 support_margin = 3;
@@ -16,16 +16,13 @@ support_margin = 3;
 // Resulting box measures
 box_x = cargo_x + 2*material_z + 2*support_margin;
 box_y = cargo_y + 2*material_z;
-box_z = cargo_z + 0;
-
-top_inset_z = 5;
-bottom_inset_z = 5;
-side_y_inset = 5;
+box_z = cargo_z + 2*material_z + 2*support_margin;
 
 // Nose properties
-nose_width = box_x / 3;
-nose_offset_x = box_x/2 - nose_width/2;
-nose_offset_y = nose_offset_x;
+nose_x_width = box_x / 4;
+nose_y_width = box_y / 4;
+nose_x_inset = material_z + 2*support_margin;
+nose_y_inset = material_z + support_margin;
 
 /*
  * Snap joint parameters
