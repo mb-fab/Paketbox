@@ -22,13 +22,13 @@ module parts()
 {
     side_xz_planar();
 
-    translate([0, box_z + spacing, 0])
-    side_xz_planar();
+    translate([material_z, box_z + spacing, 0])
+    side_yz_planar();
 
     translate([0, 2*(box_z + spacing), 0])
-    side_yz_planar();
+    side_xz_planar();
     
-    translate([0, 3*(box_z + spacing), 0])
+    translate([material_z, 3*(box_z + spacing), 0])
     side_yz_planar();
     
     translate([box_x + spacing, 0, 0])

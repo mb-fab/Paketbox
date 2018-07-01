@@ -8,7 +8,7 @@ material_z = 3;
 // The inside measures of the box
 cargo_x = 360;
 cargo_y = 360;
-cargo_z = 80;
+cargo_z = 100;
 
 // How much space to leave between nose cutouts and material corner
 support_margin = 3;
@@ -34,7 +34,7 @@ snap_joint_width = 25;
 snap_joint_height = 25;
 snap_joint_feather_hook_height = 5;
 */
-snap_joint_width = 40;
+snap_joint_width = 30;
 snap_joint_height = 40;
 snap_joint_feather_width = 7;
 snap_joint_feather_hook_width = 2;
