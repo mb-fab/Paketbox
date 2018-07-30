@@ -20,21 +20,52 @@ module side_yz_planar()
 
 module parts()
 {
+    // Align the higher stack to the left side, so we can read the required material height
+    side_pieces_height = 4*box_z + 3*spacing;
+    top_bottom_pieces_height = 2*box_y + spacing;
+    side_pieces_x = (side_pieces_height > top_bottom_pieces_height) ? 0 : (box_x + spacing);
+    top_bottom_pieces_x = (side_pieces_height > top_bottom_pieces_height) ? (box_x + spacing) : 0;
+
+    translate([
+        side_pieces_x,
+        0,
+        0
+        ])
     side_xz_planar();
 
-    translate([material_z, box_z + spacing, 0])
+    translate([
+        side_pieces_x + snap_joint_feather_hook_height + material_z,
+        box_z + spacing,
+        0
+        ])
     side_yz_planar();
 
-    translate([0, 2*(box_z + spacing), 0])
+    translate([
+        side_pieces_x,
+        2*(box_z + spacing),
+        0
+        ])
     side_xz_planar();
     
-    translate([material_z, 3*(box_z + spacing), 0])
+    translate([
+        side_pieces_x + snap_joint_feather_hook_height + material_z,
+        3*(box_z + spacing),
+        0
+        ])
     side_yz_planar();
     
-    translate([box_x + spacing, 0, 0])
+    translate([
+        top_bottom_pieces_x,
+        0,
+        0
+        ])
     side_xy();
     
-    translate([box_x + spacing, box_y + spacing, 0])
+    translate([
+        top_bottom_pieces_x,
+        box_y + spacing,
+        0
+        ])
     side_xy();
 }
 

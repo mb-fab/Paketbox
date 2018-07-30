@@ -5,13 +5,13 @@ nothing = 0.01;
 // Material to cut from
 material_z = 3;
 
-// The inside measures of the box
-cargo_x = 360;
-cargo_y = 360;
-cargo_z = 100;
+// The inside measures of the box (sorted by decreasing measures)
+cargo_x = 380;
+cargo_y = 260;
+cargo_z = 90;
 
 // How much space to leave between nose cutouts and material corner
-support_margin = 3;
+support_margin = 5;
 
 // Resulting box measures
 box_x = cargo_x + 2*material_z + 2*support_margin;
